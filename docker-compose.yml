@@ -11,7 +11,7 @@ services:
       # Logging
       - ./nginx/log:/var/log/nginx/
       # Volume đến code ứng dụng, giống bên php-fpm nữa
-      - ./nginx/index.php:/var/www/html/index.php
+      - ./:/var/www/html/
   mysql:
     image: mysql:5.7
     environment:
@@ -30,6 +30,6 @@ services:
   php-fpm:
     image: php:7.2-fpm
     volumes:
-      - ./nginx/index.php:/var/www/html/index.php
+      - ./:/var/www/html/
 volumes:
   db_data: {}
